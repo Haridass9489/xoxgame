@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up to play TIC-TAC-TOE</title>
+    <link rel="stylecheet" href="emailValidation.css">
+</head>
+<body>
+    <div style="border:2px solid black;padding:50px;margin: 100px;width: 400px;height:300px;background-color: gray;">
+        <h1 style="color:white;text-align: center;">Sign in</h1>
+       
+            <div style="padding:50px;background-color: antiquewhite;">
+            <table id="frombox">
+                <tr>
+                    <th> <label>Enter name :</label></th>
+                    <td><input id="uname" type="text" placeholder="bala" required><div ></div></td>
+                    
+                </tr>
+                
+                <tr>
+                    <th> <label>Enter email :</label></th>
+                    <td><input id="email" placeholder="abc567@gmail.com" required><div></div></td>
+                </tr>
+                <tr>
+                    <th><label> New password :</label></th>
+                    <td><input type="password" id="pwd" placeholder="password" required><div></div></td>
+                </tr>
+                <tr>
+                    <th><label>Confirm password :</label></th>
+                    <td><input type="password" id="cpwd" placeholder="password" required><div></div></td>
+                </tr>
+            </table><br>
+            
+            <button type="submit" onclick="check()"  style="float: right;" >Sign in</button>
+        </div>
+        <p id="al"></p>
+        
+    </div>
+    <script>
+        function check(){
+            var emailId = document.getElementById("email").value.trim();
+            var  emailFor = /^([a-zA-Z0-9\._])+\@([gmail])+\.([com])+$/;
+            var cpassword = document.getElementById("cpwd").value;
+            var password = document.getElementById("pwd").value;
+            var pwdFor = /^((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[~!@#$%^&*]).{8,})+$/
+            
+            if(!pwdFor.test(password)){
+                  document.getElementById("al").innerHTML="Invalid password";
+            }
+            else if(!emailFor.test(emailId)){
+                  document.getElementById("al").innerHTML="Invalid email";
+            }
+            else if(password!=cpassword){
+                  document.getElementById("al").innerHTML="Password doen't match";
+            }
+            else{
+                document.getElementById("al").innerHTML="You have successfully signed in";
+                location.replace("https://haridass9489.github.io/xox/TicTacToe.html");
+            }
+          
+            } 
+        
+    </script>
+</body>
+</html>
